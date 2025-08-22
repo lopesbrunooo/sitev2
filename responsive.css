@@ -1,0 +1,2536 @@
+/* CSS Responsivo para corrigir problemas de layout */
+
+/* Reset de overflow horizontal */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+
+/* Melhorias para gestos de toque em dispositivos móveis */
+.hero-section {
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: transform 0.3s ease;
+}
+
+/* Garantir que os slides sejam responsivos ao toque */
+.hero-section[data-slide] {
+    touch-action: pan-y pinch-zoom;
+}
+
+/* Feedback visual durante swipe */
+.hero-section.swiping {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Melhorar indicadores de slide para toque */
+.hero-indicators {
+    touch-action: manipulation;
+}
+
+.hero-indicator {
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+/* Adicionar animação suave para transições de slide */
+.hero-section {
+    transition: background-image 0.5s ease, transform 0.3s ease;
+}
+
+/* Melhorar feedback visual para toque nos indicadores */
+.hero-indicator:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets e dispositivos médios - AGORA INCLUINDO NO FORMATO MOBILE */
+@media screen and (max-width: 1024px) {
+    /* Header responsivo */
+    .main-header {
+        padding: 0;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Colocar "Parcerias" um pouco para a esquerda em mobile */
+    .main-nav ul li:last-child {
+        margin-right: 20px;
+    }
+    
+    /* Colocar "Soluções educacionais" um pouco para a direita em mobile */
+    .main-nav ul li:nth-child(3) {
+        margin-left: 20px;
+    }
+    
+    /* Colocar "Quem somos" um pouco para a direita em mobile */
+    .main-nav ul li:nth-child(2) {
+        margin-left: 20px;
+    }
+    
+    /* Colocar "Início" um pouco para a direita em mobile */
+    .main-nav ul li:first-child {
+        margin-left: 20px;
+    }
+    
+    .header-logo img {
+        max-width: 180px;
+    }
+    
+    .header-nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .header-nav a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    /* Hero Section responsivo */
+    .hero-section {
+        padding: 60px 20px;
+        min-height: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+        z-index: 2;
+        position: relative;
+    }
+    
+
+    
+    .hero-content h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 250px;
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    /* Ocultar imagens decorativas em mobile */
+    .hero-section img[src*="eimagem.png"],
+    .hero-section img[src*="ava.png"],
+    .hero-section img[src*="slide2.png"] {
+        display: none !important;
+    }
+    
+    /* Ocultar setinhas de navegação dos slides em mobile */
+    /* Em dispositivos móveis, a navegação é feita apenas por swipe (passar o dedo para os lados) */
+    .hero-section .hero-nav-arrow {
+        display: none !important;
+    }
+    
+    /* Melhorar indicadores para mobile */
+    .hero-section .hero-indicators {
+        bottom: 30px;
+        gap: 12px;
+        z-index: 10;
+    }
+    
+    /* As bolinhas agora mantêm posição fixa em todos os slides */
+    
+    .hero-section .hero-indicator {
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        touch-action: manipulation;
+    }
+    
+    .hero-section .hero-indicator.active {
+        background: rgba(255, 255, 255, 1);
+        border-color: rgba(255, 255, 255, 1);
+        transform: scale(1.2);
+    }
+    
+    .hero-section .hero-indicator:hover,
+    .hero-section .hero-indicator:active {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.1);
+    }
+    
+    /* Centralizar slide2-content em mobile */
+    .slide2-content {
+        text-align: center !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+    
+    .slide2-content h1 {
+        text-align: center !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    
+    /* Melhorias para slides 3 e 4 em mobile */
+    .hero-section[data-slide="2"] .hero-content,
+    .hero-section[data-slide="3"] .hero-content {
+        text-align: center !important;
+        margin: 0 auto !important;
+        padding: 20px !important;
+        max-width: 90%;
+    }
+    
+    /* Ajustar posicionamento do slide 3 (Pedagogia, Conteúdo, Tecnologia) */
+    .hero-section[data-slide="2"] .hero-content div {
+        text-align: center !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+    
+    .hero-section[data-slide="2"] .hero-content strong,
+    .hero-section[data-slide="2"] .hero-content span {
+        margin-left: 0 !important;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    /* Ajustar posicionamento do slide 4 (Não basta ensinar, é preciso TRANSFORMAR) */
+    .hero-section[data-slide="3"] .hero-content div {
+        text-align: center !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+    
+    .hero-section[data-slide="3"] .hero-content p {
+        margin: 0 auto 10px auto !important;
+        text-align: center !important;
+        color: #000000 !important;
+        text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    }
+    
+    /* Ocultar imagens dos slides 3 e 4 em mobile para melhor legibilidade */
+    
+
+    
+    /* Adicionar slide3.png como fundo do slide 3 em mobile */
+    .hero-section[data-slide="2"] {
+        background-image: linear-gradient(90deg, rgba(128, 128, 128, 0.8) 0%, rgba(0, 200, 255, 0.6) 100%), url('assets/img/slide3.png') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    /* Alterar cores das palavras no slide 3 APENAS para mobile */
+    .hero-section[data-slide="2"] .hero-content strong:first-child {
+        color: #000000 !important; /* Pedagogia em preto */
+    }
+    
+    .hero-section[data-slide="2"] .hero-content strong:last-child {
+        color: #1e3a8a !important; /* Tecnologia em azul escuro */
+    }
+    
+    /* Adicionar slide14.jpg como fundo do slide 4 em mobile */
+    .hero-section[data-slide="3"] {
+        background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 200, 0.9) 15%, rgba(173, 216, 230, 0.85) 30%, rgba(221, 160, 221, 0.8) 50%, rgba(255, 182, 193, 0.75) 70%, rgba(138, 43, 226, 0.7) 85%, rgba(0, 0, 139, 0.6) 100%), url('assets/img/slide14.jpg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    /* Ajustar setas e indicadores do carousel */
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .carousel-indicators {
+        bottom: 20px;
+        gap: 8px;
+    }
+    
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
+    }
+    
+    /* Solutions Section responsivo - MANTENDO LAYOUT CIRCULAR ORIGINAL */
+    .solutions-section {
+        padding: 60px 20px;
+        overflow: hidden;
+    }
+    
+    .solutions-container {
+        max-width: 100%;
+        overflow: visible;
+        position: relative;
+    }
+    
+    .solutions-content h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .solutions-content p {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    /* MANTER LAYOUT CIRCULAR ORIGINAL DAS BOLHAS */
+    .solutions-diagram {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        overflow: visible;
+        /* Manter layout circular original */
+    }
+    
+    /* Manter posicionamento absoluto das bolhas */
+    .central-logo-bubble {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-30%, -50%);
+        z-index: 10;
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .central-logo-bubble img {
+        width: 80px;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+    
+    /* MANTER LAYOUT CIRCULAR ORIGINAL DAS BOLHAS EDUCACIONAIS */
+    .education-bubble {
+        position: absolute;
+        /* Manter posicionamento circular original */
+        width: 200px;
+        height: 200px;
+        background-image: linear-gradient(to bottom right, #29abe2, #0071bc);
+        padding: 15px;
+        font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+        line-height: 1.3;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 50%;
+    }
+    
+    /* MANTER POSICIONAMENTO CIRCULAR ORIGINAL */
+    /* POSICIONAR BOLHA 1 UM POUCO PARA BAIXO EM MOBILE */
+    .bubble-1 { 
+        transform: translate(-30%, -50%) rotate(0deg) translateY(-100px) rotate(0deg); 
+    }
+    /* POSICIONAR BOLHA 2 À DIREITA EM MOBILE */
+    .bubble-2 { 
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-100px) rotate(-72deg); 
+    }
+    .bubble-3 { 
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-105px) rotate(-144deg); 
+    }
+    .bubble-4 { 
+        transform: translate(-25%, -50%) rotate(216deg) translateY(-105px) rotate(-216deg); 
+    }
+    /* POSICIONAR BOLHA 5 À ESQUERDA EM MOBILE */
+    .bubble-5 { 
+        transform: translate(-40%, -50%) rotate(288deg) translateY(-100px) rotate(-288deg); 
+    }
+    
+    /* MANTER HOVER EFFECTS ORIGINAIS */
+    /* HOVER EFFECT PARA BOLHA 1 UM POUCO PARA BAIXO */
+    .bubble-1:hover { 
+        transform: translate(-30%, -50%) rotate(0deg) translateY(-100px) rotate(0deg); 
+    }
+    /* HOVER EFFECT PARA BOLHA 2 POSICIONADA À DIREITA */
+    .bubble-2:hover { 
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-100px) rotate(-72deg); 
+    }
+    .bubble-3:hover { 
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-105px) rotate(-144deg); 
+    }
+    .bubble-4:hover { 
+        transform: translate(-25%, -50%) rotate(216deg) translateY(-105px) rotate(-216deg); 
+    }
+    /* HOVER EFFECT PARA BOLHA 5 POSICIONADA À ESQUERDA */
+    .bubble-5:hover { 
+        transform: translate(-40%, -50%) rotate(288deg) translateY(-100px) rotate(-288deg); 
+    }
+    
+    /* MANTER ROTAÇÃO DO TEXTO DENTRO DAS BOLHAS */
+    .bubble-1 > * { 
+        transform: rotate(0deg); 
+    }
+    .bubble-2 > * { 
+        transform: rotate(-72deg); 
+    }
+    .bubble-3 > * { 
+        transform: rotate(-144deg); 
+    }
+    .bubble-4 > * { 
+        transform: rotate(-216deg); 
+    }
+    .bubble-5 > * { 
+        transform: rotate(-288deg); 
+    }
+    
+
+    
+    /* MANTER FUNCIONALIDADE DAS SUB-BOLHAS */
+    .sub-bubble {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background-image: linear-gradient(to bottom right, #29abe2, #0071bc);
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        line-height: 1.3;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        display: none;
+    }
+    
+
+    
+    /* MOSTRAR SUB-BOLHAS NO HOVER/ACTIVE */
+    .bubble-1:hover .sub-bubble, .bubble-1:active .sub-bubble {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .bubble-2:hover .sub-bubble, .bubble-2:active .sub-bubble {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .bubble-3:hover .sub-bubble, .bubble-3:active .sub-bubble {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .bubble-4:hover .sub-bubble, .bubble-4:active .sub-bubble {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .bubble-5:hover .sub-bubble, .bubble-5:active .sub-bubble {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    /* MANTER POSICIONAMENTO DAS SUB-BOLHAS */
+    /* POSICIONAR SUB-BOLHAS DA BOLHA 1 UM POUCO PARA BAIXO */
+    .bubble-1 .sub-bubble-1 { 
+        transform: translate(-30%, -50%) rotate(0deg) translateY(-180px) rotate(0deg); 
+    }
+    .bubble-1 .sub-bubble-2 { 
+        transform: translate(-30%, -50%) rotate(-36deg) translateY(-85px) translateX(-45px) rotate(36deg); 
+    }
+    .bubble-1 .sub-bubble-3 { 
+        transform: translate(-30%, -50%) rotate(36deg) translateY(-85px) translateX(45px) rotate(-36deg); 
+    }
+    /* POSICIONAR SUB-BOLHA 2 À DIREITA */
+    .bubble-2 .sub-bubble-1 { 
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-40px) rotate(-100deg); 
+    }
+    .bubble-2 .sub-bubble-2 { 
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-80px) translateX(-60px) rotate(-72deg); 
+    }
+    .bubble-2 .sub-bubble-3 { 
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-80px) translateX(60px) rotate(-72deg); 
+    }
+    /* POSICIONAR SUB-BOLHAS DA BOLHA 3 */
+    .bubble-3 .sub-bubble-1 { 
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-95px) rotate(-144deg); 
+    }
+    .bubble-3 .sub-bubble-2 { 
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-95px) translateX(-50px) rotate(-144deg); 
+    }
+    .bubble-3 .sub-bubble-3 { 
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-95px) translateX(50px) rotate(-144deg); 
+    }
+    /* POSICIONAR SUB-BOLHAS DA BOLHA 4 */
+    .bubble-4 .sub-bubble-1 { 
+        transform: translate(-25%, -50%) rotate(216deg) translateY(-85px) rotate(-216deg); 
+    }
+    .bubble-4 .sub-bubble-2 { 
+        transform: translate(-25%, -50%) rotate(216deg) translateY(-85px) translateX(-60px) rotate(-216deg); 
+    }
+    .bubble-4 .sub-bubble-3 { 
+        transform: translate(-25%, -50%) rotate(252deg) translateY(-140px) translateX(90px) rotate(-252deg); 
+    }
+    /* POSICIONAR SUB-BOLHAS DA BOLHA 5 À ESQUERDA */
+    .bubble-5 .sub-bubble-1 { 
+        transform: translate(-40%, -50%) rotate(288deg) translateY(-80px) rotate(-288deg); 
+    }
+    .bubble-5 .sub-bubble-2 { 
+        transform: translate(-40%, -50%) rotate(288deg) translateY(-80px) translateX(-60px) rotate(-288deg); 
+    }
+    .bubble-5 .sub-bubble-3 { 
+        transform: translate(-40%, -50%) rotate(324deg) translateY(-120px) translateX(80px) rotate(-324deg); 
+    }
+    
+    /* Ocultar imagem decorativa em mobile */
+    .solutions-image-wrapper {
+        display: none !important;
+    }
+    
+    .solutions-section img[src*="eimagem.png"] {
+        display: none !important;
+    }
+    
+    /* About Section responsivo */
+    .about-section {
+        padding: 60px 20px;
+    }
+    
+    .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-content {
+        text-align: center;
+        max-width: 100%;
+        order: 2;
+    }
+    
+    .about-content h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        margin-bottom: 15px;
+    }
+    
+    .about-content p {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        margin-bottom: 15px;
+    }
+    
+    .about-image {
+        max-width: 100%;
+        height: auto;
+        order: 1;
+    }
+    
+    /* Team Section responsivo */
+    .team-section {
+        padding: 60px 20px;
+    }
+    
+    .team-content h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .team-content p {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .team-member {
+        text-align: center;
+    }
+    
+    .team-member img {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 15px;
+    }
+    
+    .team-member h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .team-member p {
+        font-size: 0.9rem;
+    }
+    
+    /* Contact Section responsivo */
+    .contact-section {
+        padding: 60px 20px;
+    }
+    
+    .contact-content h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .contact-content p {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .contact-form {
+        max-width: 100%;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    .form-group textarea {
+        min-height: 120px;
+    }
+    
+    .contact-form .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+    
+    /* Footer responsivo */
+.footer {
+    padding: 30px 20px;
+}
+
+.footer-container {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+}
+
+/* Centralizar o mini mapa em dispositivos móveis */
+.footer-map {
+    margin: 15px auto 0;
+}
+    
+    .footer-logo img {
+        max-width: 120px;
+    }
+    
+    .footer-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .footer-nav a {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    
+    /* Correções específicas para problemas de layout */
+    /* Forçar quebra de linha em textos longos */
+    .hero-content h1, .slide2-content h1 {
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Garantir que as bolhas não saiam da tela */
+    .solutions-diagram {
+        overflow: visible;
+        position: relative;
+        /* Manter layout circular original */
+    }
+    
+    /* Centralizar conteúdo das bolhas */
+    .education-bubble {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Manter posicionamento absoluto para layout circular */
+        position: absolute;
+    }
+    
+    /* Ajustar espaçamento entre elementos */
+    .solutions-section {
+        margin: 0;
+        padding: 60px 20px;
+    }
+    
+    /* Garantir que o container principal não tenha overflow */
+    .solutions-container {
+        overflow: visible;
+        position: relative;
+    }
+    
+    /* Manter funcionalidade das sub-bolhas em mobile */
+    .sub-bubble {
+        position: absolute;
+        opacity: 0;
+        transition: all 0.3s ease;
+        /* Posicionar sub-bolhas relativas à bolha pai */
+        z-index: 1;
+    }
+    
+    /* Classe para texto menor em dispositivos móveis */
+    .sub-bubble.mobile-small-text {
+        font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+        line-height: 1.1;
+    }
+    
+    /* Esconder sub-bolhas em mobile - elas aparecem no modal */
+    .education-bubble:hover .sub-bubble,
+    .education-bubble:active .sub-bubble {
+        display: none !important;
+        opacity: 0 !important;
+    }
+    
+    /* Adicionar cursor pointer para indicar que é clicável */
+    .education-bubble {
+        cursor: pointer;
+    }
+    
+    /* Modal das bolhas para mobile */
+    .bubble-modal-content {
+        width: 95%;
+        max-width: 500px;
+        margin: 10% auto;
+    }
+    
+    .bubble-modal-header {
+        padding: 20px 20px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .bubble-modal-header h3 {
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+        flex: 1;
+        text-align: center;
+    }
+    
+    .bubble-modal-body {
+        padding: 20px 15px;
+    }
+    
+    .sub-bubble-grid {
+        gap: 15px;
+    }
+    
+    .sub-bubble-item {
+        padding: 20px 15px;
+    }
+    
+    .sub-bubble-content {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+        line-height: 1.4;
+    }
+    
+    /* Centralização do texto da seção de materiais apenas para dispositivos móveis */
+    .materials-section .materials-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .materials-section .materials-content h2 {
+        text-align: center;
+    }
+    
+    .materials-section .materials-content p {
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .materials-section .materials-content p::before {
+        display: none;
+    }
+    
+    /* Centralização da imagem em dispositivos móveis */
+    .materials-section .materials-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .materials-section .materials-image-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .materials-section .materials-image-container img {
+        transform: rotate(0deg);
+        margin: 0 auto;
+    }
+    
+    /* Centralização da seção de projetos interdisciplinares para dispositivos móveis */
+    .interdisciplinary-section .interdisciplinary-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .interdisciplinary-section .interdisciplinary-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .interdisciplinary-section .interdisciplinary-content h2 {
+        text-align: center;
+    }
+    
+    .interdisciplinary-section .interdisciplinary-content p {
+        text-align: center;
+    }
+    
+    /* Ocultar imagem decorativa eimagem.png em dispositivos móveis */
+    .interdisciplinary-section img[src*="eimagem.png"] {
+        display: none;
+    }
+    
+    /* Centralização da seção de itinerários formativos para dispositivos móveis */
+    .formative-journeys-section .formative-journeys-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .formative-journeys-section .formative-journeys-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .formative-journeys-section .formative-journeys-content h2 {
+        text-align: center;
+    }
+    
+    .formative-journeys-section .formative-journeys-content p {
+        text-align: center;
+    }
+    
+    /* Centralização da seção de ecossistema pedagógico para dispositivos móveis */
+    .ecosystem-section .ecosystem-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .ecosystem-section .ecosystem-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .ecosystem-section .ecosystem-content h2 {
+        text-align: center;
+    }
+    
+    .ecosystem-section .ecosystem-content p {
+        text-align: center;
+    }
+    
+    /* Ocultar imagem decorativa eimagem.png em dispositivos móveis */
+    .ecosystem-section img[src*="eimagem.png"] {
+        display: none;
+    }
+    
+    /* Centralização da seção de educação profissional para dispositivos móveis */
+    .professional-education-section .professional-education-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .professional-education-section .professional-education-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .professional-education-section .professional-education-content h2 {
+        text-align: center;
+    }
+    
+    .professional-education-section .professional-education-content p,
+    .professional-education-section .professional-education-content .subtitle,
+    .professional-education-section .professional-education-content strong,
+    .professional-education-section .professional-education-content ul {
+        text-align: center;
+    }
+    
+    .professional-education-section .professional-education-content ul {
+        list-style-position: inside;
+        padding-left: 0;
+    }
+    
+    /* Ocultar imagem decorativa eimagem.png em dispositivos móveis */
+    .professional-education-section img[src*="eimagem.png"] {
+        display: none;
+    }
+    
+    /* Melhorar exibição da imagem m1.png em dispositivos móveis */
+    .professional-education-section .professional-education-image-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto 0;
+        justify-content: center;
+    }
+    
+    .professional-education-section .professional-education-image-container .image-wrapper {
+        width: 100%;
+        height: 300px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    
+    .professional-education-section .professional-education-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    /* Centralização e melhorias do carrossel de livros para dispositivos móveis */
+    .books-carousel-section {
+        padding: clamp(40px, 8vw, 60px) 20px;
+    }
+    
+    .books-carousel-container {
+        flex-direction: row;
+        gap: 10px;
+        margin: 20px 0;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .book-item {
+        margin: 0;
+        width: auto;
+        max-width: 100px;
+        flex: 0 0 auto;
+    }
+    
+    .book-item img {
+        width: 100%;
+        height: auto;
+        max-height: 140px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    
+    .books-carousel-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .books-carousel-arrow:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    
+    /* Garantir que o modal seja responsivo em telas muito pequenas */
+    @media screen and (max-width: 480px) {
+        .bubble-modal-content {
+            width: 98%;
+            margin: 5% auto;
+        }
+        
+        .bubble-modal-header {
+            padding: 15px 15px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .bubble-modal-body {
+            padding: 15px 10px;
+        }
+        
+        .sub-bubble-item {
+            padding: 15px 10px;
+        }
+        
+        .sub-bubble-content {
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        }
+    }
+}
+
+/* Dispositivos muito pequenos */
+@media screen and (max-width: 480px) {
+    /* Header responsivo */
+    .header-logo img {
+        max-width: 150px;
+    }
+    
+    .header-nav ul {
+        gap: 10px;
+    }
+    
+    .header-nav a {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    /* Hero Section responsivo */
+    .hero-section {
+        padding: 50px 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 12px;
+    }
+    
+    .hero-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: 20px;
+    }
+    
+    .hero-buttons .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Solutions Section responsivo */
+    .solutions-section {
+        padding: 50px 15px;
+    }
+    
+    .solutions-content h2 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 12px;
+    }
+    
+    .solutions-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: 20px;
+    }
+    
+    /* Ajustar tamanho das bolhas para telas muito pequenas */
+    .education-bubble {
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+    }
+    
+    /* Ajustar tamanho da bolha central para telas menores */
+    .central-logo-bubble {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .central-logo-bubble img {
+        width: 70px;
+        height: auto;
+    }
+    
+    /* Ajustar posicionamento das bolhas para telas muito pequenas */
+    /* POSICIONAR BOLHA 1 UM POUCO PARA BAIXO EM TELAS PEQUENAS */
+    .bubble-1 { 
+        transform: translate(-30%, -50%) rotate(0deg) translateY(-90px) rotate(0deg); 
+    }
+    /* POSICIONAR BOLHA 2 À DIREITA EM TELAS PEQUENAS */
+    .bubble-2 { 
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-90px) rotate(-72deg); 
+    }
+    /* POSICIONAR BOLHA 3 EM TELAS PEQUENAS */
+    .bubble-3 { 
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-95px) rotate(-144deg); 
+    }
+    /* POSICIONAR BOLHA 5 À ESQUERDA EM TELAS PEQUENAS */
+    .bubble-4 { 
+        transform: translate(-25%, -50%) rotate(216deg) translateY(-95px) rotate(-216deg); 
+    }
+    /* POSICIONAR BOLHA 5 À ESQUERDA EM TELAS PEQUENAS */
+    .bubble-5 { 
+        transform: translate(-40%, -50%) rotate(288deg) translateY(-90px) rotate(-288deg); 
+    }
+    
+    /* Ajustar tamanho das sub-bolhas */
+    .sub-bubble {
+        width: 100px;
+        height: 100px;
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+    }
+    
+    .education-bubble h3 {
+        font-size: 0.8rem;
+    }
+    
+    .education-bubble p {
+        font-size: 0.6rem;
+    }
+    
+
+    
+
+    
+    /* About Section responsivo */
+    .about-section {
+        padding: 50px 15px;
+    }
+    
+    .about-content h2 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 12px;
+    }
+    
+    .about-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: 12px;
+    }
+    
+    /* Team Section responsivo */
+    .team-section {
+        padding: 50px 15px;
+    }
+    
+    .team-content h2 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 12px;
+    }
+    
+    .team-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: 20px;
+    }
+    
+    .team-grid {
+        gap: 20px;
+        max-width: 250px;
+    }
+    
+    .team-member img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+    
+    .team-member h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    .team-member p {
+        font-size: 0.8rem;
+    }
+    
+    /* Contact Section responsivo */
+    .contact-section {
+        padding: 50px 15px;
+    }
+    
+    .contact-content h2 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 12px;
+    }
+    
+    .contact-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+    
+    .contact-form .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    /* Footer responsivo */
+    .footer {
+        padding: 25px 15px;
+    }
+    
+    .footer-container {
+        gap: 20px;
+    }
+    
+    .footer-logo img {
+        max-width: 100px;
+    }
+    
+    .footer-nav ul {
+        gap: 12px;
+    }
+    
+    .footer-nav a {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+    
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+}
+
+/* Orientação paisagem em dispositivos móveis */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 10px;
+    }
+    
+    .hero-content p {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        margin-bottom: 15px;
+    }
+    
+    .hero-buttons {
+        gap: 10px;
+    }
+    
+    .hero-buttons .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .solutions-section {
+        padding: 40px 20px;
+    }
+    
+    .about-section {
+        padding: 40px 20px;
+    }
+    
+    .team-section {
+        padding: 40px 20px;
+    }
+    
+    .contact-section {
+        padding: 40px 20px;
+    }
+}
+
+/* Correções para dispositivos com tela muito pequena */
+@media screen and (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+    
+    .solutions-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .solutions-content p {
+        font-size: 0.8rem;
+    }
+    
+    .about-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .about-content p {
+        font-size: 0.8rem;
+    }
+    
+    .team-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .team-content p {
+        font-size: 0.8rem;
+    }
+    
+    .contact-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .contact-content p {
+        font-size: 0.8rem;
+    }
+    
+    .education-bubble {
+        width: 90px;
+        height: 90px;
+    }
+    
+
+    
+    /* POSICIONAR BOLHA 1 UM POUCO PARA BAIXO EM TELAS MUITO PEQUENAS */
+    .bubble-1 {
+        transform: translate(-30%, -50%) rotate(0deg) translateY(-90px) rotate(0deg);
+    }
+    
+
+    
+    /* POSICIONAR BOLHA 2 À DIREITA EM TELAS MUITO PEQUENAS */
+    .bubble-2 {
+        transform: translate(-20%, -50%) rotate(72deg) translateY(-90px) rotate(-72deg);
+    }
+    
+
+    
+    /* POSICIONAR BOLHA 3 EM TELAS MUITO PEQUENAS */
+    .bubble-3 {
+        transform: translate(-25%, -50%) rotate(144deg) translateY(-95px) rotate(-144deg);
+    }
+    
+    /* POSICIONAR BOLHA 4 EM TELAS MUITO PEQUENAS */
+    .bubble-4 {
+        transform: translate(-25%, -50%) rotate(216deg) translateY(-95px) rotate(-216deg);
+    }
+    
+    /* POSICIONAR BOLHA 5 À ESQUERDA EM TELAS MUITO PEQUENAS */
+    .bubble-5 {
+        transform: translate(-40%, -50%) rotate(288deg) translateY(-90px) rotate(-288deg);
+    }
+    
+    /* Ajustar tamanho da bolha central para telas muito pequenas */
+    .central-logo-bubble {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .central-logo-bubble img {
+        width: 60px;
+        height: auto;
+    }
+    
+    .education-bubble h3 {
+        font-size: 0.8rem;
+    }
+    
+    .education-bubble p {
+        font-size: 0.6rem;
+    }
+}
+
+/* ===== NOVOS BREAKPOINTS PARA RESOLUÇÕES INTERMEDIÁRIAS ===== */
+
+/* Resoluções intermediárias (1220px - 1440px) - MANTÉM LAYOUT DESKTOP */
+@media screen and (min-width: 1220px) and (max-width: 1440px) {
+    /* Header responsivo */
+    .main-header {
+        padding: 2px 3%;
+    }
+    
+    .header-container {
+        max-width: 1400px;
+    }
+    
+    .logo img {
+        height: 100px;
+        max-width: 320px;
+    }
+    
+    .main-nav ul {
+        gap: 25px;
+    }
+    
+    .main-nav a {
+        font-size: clamp(0.8rem, 2.2vw, 0.85rem);
+    }
+    
+    /* Hero Section responsivo - MANTENDO FUNCIONAMENTO ORIGINAL */
+    .hero-container {
+        max-width: 1400px;
+        padding: 0 3%;
+    }
+    
+    .hero-content {
+        max-width: 55%;
+    }
+    
+    /* Ajustar apenas o tamanho das imagens decorativas */
+    .hero-section img[src*="eimagem.png"] {
+        right: -300px !important;
+        width: 450px !important;
+    }
+    
+    .hero-section img[src*="ava.png"] {
+        right: -100px !important;
+        width: 450px !important;
+    }
+    
+    /* Solutions Section responsivo */
+    .solutions-section {
+        padding: clamp(80px, 12vw, 180px) 3%;
+    }
+    
+    .solutions-container {
+        max-width: 1100px;
+        padding-right: 30px;
+        gap: 40px;
+    }
+    
+    .solutions-diagram {
+        width: min(100%, 550px);
+        height: 550px;
+    }
+    
+    .education-bubble {
+        width: 240px;
+        height: 240px;
+        font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    }
+    
+    .central-logo-bubble {
+        width: 210px;
+        height: 210px;
+    }
+    
+    .central-logo-bubble img {
+        width: 100px;
+    }
+    
+    /* Ajustar posicionamento das bolhas para resoluções intermediárias */
+    .bubble-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-170px) rotate(0deg); }
+    .bubble-2 { transform: translate(-50%, -50%) rotate(72deg) translateY(-170px) rotate(-72deg); }
+    .bubble-3 { transform: translate(-50%, -50%) rotate(144deg) translateY(-170px) rotate(-144deg); }
+    .bubble-4 { transform: translate(-50%, -50%) rotate(216deg) translateY(-170px) rotate(-216deg); }
+    .bubble-5 { transform: translate(-50%, -50%) rotate(288deg) translateY(-170px) rotate(-72deg); }
+    
+    /* Ajustar hover effects */
+    .bubble-1:hover { transform: translate(-50%, -50%) rotate(0deg) translateY(-170px) rotate(0deg) scale(1.1); }
+    .bubble-2:hover { transform: translate(-50%, -50%) rotate(72deg) translateY(-170px) rotate(-72deg) scale(1.1); }
+    .bubble-3:hover { transform: translate(-50%, -50%) rotate(144deg) translateY(-170px) rotate(-144deg) scale(1.1); }
+    .bubble-4:hover { transform: translate(-50%, -50%) rotate(216deg) translateY(-170px) rotate(-216deg) scale(1.1); }
+    .bubble-5:hover { transform: translate(-50%, -50%) rotate(288deg) translateY(-170px) rotate(-288deg) scale(1.1); }
+    
+    /* Ajustar posicionamento das sub-bolhas */
+    .bubble-1 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-130px) rotate(0deg); }
+    
+    /* DESKTOP: Mover palavra "Pedagogia" para cima no slide 3 */
+    .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -30px !important;
+        display: block !important;
+    }
+    
+    /* DESKTOP MÉDIO: Mover palavra "Inovação" mais para a direita no slide 2 */
+    .hero-section[data-slide="1"] .hero-content span[style*="color: #1e3a8a"] {
+        margin-left: 30px !important;
+        transform: translateX(20px) !important;
+    }
+    
+    /* DESKTOP MÉDIO: Forçar posicionamento da palavra "Inovação" no slide 2 */
+    .hero-section[data-slide="1"] .slide2-content span[style*="color: #1e3a8a"] {
+        margin-left: 30px !important;
+        transform: translateX(20px) !important;
+    }
+    
+    /* DESKTOP MÉDIO: Mover palavra "Interação" mais para a esquerda no slide 2 */
+    .hero-section[data-slide="1"] .hero-content strong:last-child {
+        margin-left: -20px !important;
+        transform: translateX(-15px) !important;
+    }
+    
+    /* DESKTOP MÉDIO: Forçar posicionamento da palavra "Interação" no slide2-content */
+    .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -20px !important;
+        transform: translateX(-15px) !important;
+    }
+    
+    /* REGRAS SUPER ESPECÍFICAS PARA DESKTOP MÉDIO - SLIDE 2 */
+    body .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -20px !important;
+        transform: translateX(-15px) !important;
+    }
+    
+    html body .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -20px !important;
+        transform: translateX(-15px) !important;
+    }
+    .bubble-1 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(-36deg) translateY(-130px) translateX(-90px) rotate(36deg); }
+    .bubble-1 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(36deg) translateY(-130px) translateX(90px) rotate(-36deg); }
+    .bubble-2 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(72deg) translateY(-140px) rotate(-100deg); }
+    .bubble-2 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(36deg) translateY(-130px) translateX(-90px) rotate(-36deg); }
+    .bubble-2 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(108deg) translateY(-130px) translateX(90px) rotate(-108deg); }
+    .bubble-3 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(144deg) translateY(-160px) translateX(-20px) rotate(-144deg); }
+    .bubble-3 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(108deg) translateY(-130px) translateX(-90px) rotate(-108deg); }
+    .bubble-3 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(180deg) translateY(-130px) translateX(50px) rotate(-180deg); }
+    .bubble-4 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(216deg) translateY(-155px) translateX(25px) rotate(-216deg); }
+    .bubble-4 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(180deg) translateY(-130px) translateX(-50px) rotate(-180deg); }
+    .bubble-4 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(252deg) translateY(-140px) translateX(90px) rotate(-252deg); }
+    .bubble-5 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(288deg) translateY(-155px) translateX(25px) rotate(-288deg); }
+    .bubble-5 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(252deg) translateY(-130px) translateX(-50px) rotate(-252deg); }
+    .bubble-5 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(324deg) translateY(-130px) translateX(90px) rotate(-324deg); }
+    
+    /* Ajustar outras seções para resoluções intermediárias */
+    .about-section,
+    .materials-section,
+    .interdisciplinary-section,
+    .formative-journeys-section,
+    .ecosystem-section,
+    .professional-education-section {
+        padding: clamp(60px, 8vw, 120px) 3%;
+    }
+    
+    .about-container,
+    .materials-container,
+    .interdisciplinary-container,
+    .formative-journeys-container,
+    .ecosystem-container,
+    .professional-education-container {
+        max-width: 1000px;
+    }
+    
+    /* Ajustar posicionamento das imagens decorativas */
+    .solutions-section img[src*="eimagem.png"] {
+        right: -500px;
+        width: 450px;
+    }
+    
+    .materials-section img[src*="eimagem.png"],
+    .interdisciplinary-section img[src*="eimagem.png"],
+    .ecosystem-section img[src*="eimagem.png"],
+    .professional-education-section img[src*="eimagem.png"] {
+        right: -500px;
+        width: 450px;
+    }
+    
+    /* Ajustar footer para resoluções intermediárias */
+    .footer-container {
+        max-width: 1200px;
+        padding: 0 3%;
+    }
+    
+    .footer-column {
+        padding: 0 15px;
+    }
+    
+    .footer-logo {
+        max-width: 120px;
+    }
+    
+    .footer-map iframe {
+        height: 180px;
+    }
+}
+
+/* DESKTOP COMPLETO (1440px+) - Mover palavra "Pedagogia" para cima no slide 3 */
+@media screen and (min-width: 1440px) {
+    .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -40px !important;
+        display: block !important;
+    }
+    
+    /* DESKTOP: Mover palavra "Inovação" mais para a direita no slide 2 */
+    .hero-section[data-slide="1"] .hero-content span[style*="color: #1e3a8a"] {
+        margin-left: 50px !important;
+        transform: translateX(30px) !important;
+    }
+    
+    /* DESKTOP GRANDE: Forçar posicionamento da palavra "Inovação" no slide 2 */
+    .hero-section[data-slide="1"] .slide2-content span[style*="color: #1e3a8a"] {
+        margin-left: 50px !important;
+        transform: translateX(30px) !important;
+    }
+    
+    /* DESKTOP GRANDE: Mover palavra "Interação" mais para a esquerda no slide 2 */
+    .hero-section[data-slide="1"] .hero-content strong:last-child {
+        margin-left: -30px !important;
+        transform: translateX(-20px) !important;
+    }
+    
+    /* DESKTOP GRANDE: Forçar posicionamento da palavra "Interação" no slide2-content */
+    .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -30px !important;
+        transform: translateX(-20px) !important;
+    }
+    
+    /* REGRAS SUPER ESPECÍFICAS PARA DESKTOP GRANDE - SLIDE 2 */
+    body .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -30px !important;
+        transform: translateX(-20px) !important;
+    }
+    
+    html body .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -30px !important;
+        transform: translateX(-20px) !important;
+    }
+}
+
+/* ===== REGRAS PARA 1366x768 E RESOLUÇÕES MENORES (EXCETO MOBILE) - AJUSTE DO SLIDE 4 ===== */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+    /* Ajustar posicionamento do texto "Não basta informar, é preciso CONECTAR" no slide 4 */
+    .hero-section[data-slide="3"] .hero-content div[style*="position: absolute"] {
+        right: -600px !important;
+        bottom: -150px !important;
+    }
+    
+    /* Regra mais específica para garantir que funcione */
+    .hero-section[data-slide="3"] .hero-content div[style*="bottom: -300px"] {
+        right: -600px !important;
+        bottom: -150px !important;
+    }
+    
+    /* Regra super específica para o texto específico */
+    .hero-section[data-slide="3"] .hero-content div:last-child {
+        right: -600px !important;
+        bottom: -150px !important;
+    }
+    
+    /* REGRA 4: Para qualquer div que contenha "CONECTAR" */
+    .hero-section[data-slide="3"] .hero-content div {
+        right: -600px !important;
+        bottom: -150px !important;
+    }
+    
+    /* REGRA 5: Sobrescrever TODOS os estilos inline */
+    .hero-section[data-slide="3"] .hero-content div[style] {
+        right: -600px !important;
+        bottom: -150px !important;
+    }
+    
+    /* REGRA 6: Mover texto "Não basta ensinar, é preciso TRANSFORMAR" para baixo */
+    .hero-section[data-slide="3"] .hero-content div:first-child {
+        top: -100px !important;
+    }
+    
+    /* REGRA 7: Para divs com top: -180px (texto TRANSFORMAR) */
+    .hero-section[data-slide="3"] .hero-content div[style*="top: -180px"] {
+        top: -100px !important;
+    }
+    
+    /* REGRA 8: Para divs com left: -100px (texto TRANSFORMAR) */
+    .hero-section[data-slide="3"] .hero-content div[style*="left: -100px"] {
+        top: -100px !important;
+    }
+    
+    /* REGRA 9: Mover palavra "Interação" mais para a direita no slide 2 */
+    .hero-section[data-slide="1"] .hero-content strong:last-child {
+        margin-left: 80px !important;
+        transform: translateX(50px) !important;
+    }
+    
+    /* REGRA 10: Para garantir que funcione no slide2-content */
+    .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: 80px !important;
+        transform: translateX(50px) !important;
+    }
+    
+    /* REGRA 11: Ajustar posição do mini mapa para resoluções 1366x768 e menores */
+    .footer-map {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
+    
+    .footer-map iframe {
+        width: 90% !important;
+        height: 180px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+
+
+/* ===== REGRAS PARA MOBILE - AJUSTE DO SLIDE 2 ===== */
+@media screen and (max-width: 1024px) {
+    /* MOBILE: Mover palavra "Interação" um pouco para a esquerda no slide 2 */
+    .hero-section[data-slide="1"] .hero-content strong:last-child {
+        margin-left: -20px !important;
+        transform: translateX(-15px) !important;
+    }
+    
+    /* MOBILE: Para garantir que funcione no slide2-content */
+    .hero-section[data-slide="1"] .slide2-content strong:last-child {
+        margin-left: -20px !important;
+        transform: translateX(-15px) !important;
+    }
+}
+
+
+
+/* Resoluções pequenas (1024px - 1219px) - LAYOUT INTERMEDIÁRIO */
+@media screen and (min-width: 1020px) and (max-width: 1219px) {
+    /* Header responsivo */
+    .main-header {
+        padding: 2px 4%;
+    }
+    
+    .header-container {
+        max-width: 1200px;
+    }
+    
+    .logo img {
+        height: 90px;
+        max-width: 300px;
+    }
+    
+    .main-nav ul {
+        gap: 20px;
+    }
+    
+    .main-nav a {
+        font-size: clamp(0.8rem, 2vw, 0.8rem);
+    }
+    
+    /* Hero Section responsivo - MANTENDO FUNCIONAMENTO ORIGINAL */
+    .hero-container {
+        max-width: 1200px;
+        padding: 0 4%;
+    }
+    
+    .hero-content {
+        max-width: 60%;
+    }
+    
+    /* Ajustar apenas o tamanho das imagens decorativas */
+    .hero-section img[src*="eimagem.png"] {
+        right: -250px !important;
+        width: 400px !important;
+    }
+    
+    .hero-section img[src*="ava.png"] {
+        right: -80px !important;
+        width: 400px !important;
+    }
+    
+    /* Solutions Section responsivo */
+    .solutions-section {
+        padding: clamp(70px, 10vw, 150px) 4%;
+    }
+    
+    .solutions-container {
+        max-width: 1000px;
+        padding-right: 20px;
+        gap: 30px;
+    }
+    
+    .solutions-diagram {
+        width: min(100%, 500px);
+        height: 500px;
+    }
+    
+    .education-bubble {
+        width: 220px;
+        height: 220px;
+        font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+    }
+    
+    .central-logo-bubble {
+        width: 190px;
+        height: 190px;
+    }
+    
+    .central-logo-bubble img {
+        width: 90px;
+    }
+    
+    /* Ajustar posicionamento das bolhas */
+    .bubble-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg); }
+    .bubble-2 { transform: translate(-50%, -50%) rotate(72deg) translateY(-150px) rotate(-72deg); }
+    .bubble-3 { transform: translate(-50%, -50%) rotate(144deg) translateY(-150px) rotate(-144deg); }
+    .bubble-4 { transform: translate(-50%, -50%) rotate(216deg) translateY(-150px) rotate(-216deg); }
+    .bubble-5 { transform: translate(-50%, -50%) rotate(288deg) translateY(-150px) rotate(-288deg); }
+    
+    /* Ajustar hover effects */
+    .bubble-1:hover { transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg) scale(1.1); }
+    .bubble-2:hover { transform: translate(-50%, -50%) rotate(72deg) translateY(-150px) rotate(-72deg) scale(1.1); }
+    .bubble-3:hover { transform: translate(-50%, -50%) rotate(144deg) translateY(-150px) rotate(-144deg) scale(1.1); }
+    .bubble-4:hover { transform: translate(-50%, -50%) rotate(216deg) translateY(-150px) rotate(-216deg) scale(1.1); }
+    .bubble-5:hover { transform: translate(-50%, -50%) rotate(288deg) translateY(-150px) rotate(-288deg) scale(1.1); }
+    
+    /* Ajustar outras seções */
+    .about-section,
+    .materials-section,
+    .interdisciplinary-section,
+    .formative-journeys-section,
+    .ecosystem-section,
+    .professional-education-section {
+        padding: clamp(50px, 7vw, 100px) 4%;
+    }
+    
+    .about-container,
+    .materials-container,
+    .interdisciplinary-container,
+    .formative-journeys-container,
+    .ecosystem-container,
+    .professional-education-container {
+        max-width: 900px;
+    }
+    
+    /* Ajustar posicionamento das imagens decorativas */
+    .solutions-section img[src*="eimagem.png"] {
+        right: -400px;
+        width: 400px;
+    }
+    
+    .materials-section img[src*="eimagem.png"],
+    .interdisciplinary-section img[src*="eimagem.png"],
+    .ecosystem-section img[src*="eimagem.png"],
+    .professional-education-section img[src*="eimagem.png"] {
+        right: -400px;
+        width: 400px;
+    }
+    
+    /* Ajustar footer para resoluções pequenas */
+    .footer-container {
+        max-width: 1000px;
+        padding: 0 4%;
+    }
+    
+    .footer-column {
+        padding: 0 12px;
+    }
+    
+    .footer-logo {
+        max-width: 110px;
+    }
+    
+    .footer-map iframe {
+        height: 160px;
+    }
+}
+
+/* ===== BREAKPOINT ESPECÍFICO PARA 1440x900 ===== */
+@media screen and (min-width: 1220px) and (max-width: 1440px) and (max-height: 900px) {
+    /* Apenas ajustes mínimos para evitar overflow - SEM MEXER NOS SLIDES */
+    .solutions-section {
+        padding: clamp(60px, 8vw, 120px) 3%;
+    }
+    
+    .solutions-diagram {
+        height: 500px;
+    }
+    
+    .education-bubble {
+        width: 220px;
+        height: 220px;
+        font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+    }
+    
+    .central-logo-bubble {
+        width: 190px;
+        height: 190px;
+    }
+    
+    .central-logo-bubble img {
+        width: 90px;
+    }
+    
+    /* Ajustar posicionamento das bolhas para altura menor */
+    .bubble-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg); }
+    .bubble-2 { transform: translate(-50%, -50%) rotate(72deg) translateY(-150px) rotate(-72deg); }
+    .bubble-3 { transform: translate(-50%, -50%) rotate(144deg) translateY(-150px) rotate(-144deg); }
+    .bubble-4 { transform: translate(-50%, -50%) rotate(216deg) translateY(-150px) rotate(-216deg); }
+    .bubble-5 { transform: translate(-50%, -50%) rotate(288deg) translateY(-150px) rotate(-288deg); }
+    
+    /* Ajustar hover effects */
+    .bubble-1:hover { transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg) scale(1.1); }
+    .bubble-2:hover { transform: translate(-50%, -50%) rotate(72deg) translateY(-150px) rotate(-72deg) scale(1.1); }
+    .bubble-3:hover { transform: translate(-50%, -50%) rotate(144deg) translateY(-150px) rotate(-144deg) scale(1.1); }
+    .bubble-4:hover { transform: translate(-50%, -50%) rotate(216deg) translateY(-150px) rotate(-216deg) scale(1.1); }
+    .bubble-5:hover { transform: translate(-50%, -50%) rotate(288deg) translateY(-150px) rotate(-288deg) scale(1.1); }
+    
+    /* Ajustar posicionamento das sub-bolhas */
+    .bubble-1 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-120px) rotate(0deg); }
+    .bubble-1 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(-36deg) translateY(-120px) translateX(-80px) rotate(36deg); }
+    .bubble-1 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(36deg) translateY(-120px) translateX(80px) rotate(-36deg); }
+    .bubble-2 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(72deg) translateY(-130px) rotate(-100deg); }
+    .bubble-2 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(36deg) translateY(-120px) translateX(-80px) rotate(-36deg); }
+    .bubble-2 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(108deg) translateY(-120px) translateX(80px) rotate(-108deg); }
+    .bubble-3 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(144deg) translateY(-140px) translateX(-20px) rotate(-144deg); }
+    .bubble-3 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(108deg) translateY(-120px) translateX(-80px) rotate(-108deg); }
+    .bubble-3 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(180deg) translateY(-120px) translateX(50px) rotate(-180deg); }
+    .bubble-4 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(216deg) translateY(-135px) translateX(25px) rotate(-216deg); }
+    .bubble-4 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(180deg) translateY(-120px) translateX(-50px) rotate(-180deg); }
+    .bubble-4 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(252deg) translateY(-130px) translateX(80px) rotate(-252deg); }
+    .bubble-5 .sub-bubble-1 { transform: translate(-50%, -50%) rotate(288deg) translateY(-135px) translateX(25px) rotate(-288deg); }
+    .bubble-5 .sub-bubble-2 { transform: translate(-50%, -50%) rotate(252deg) translateY(-120px) translateX(-50px) rotate(-252deg); }
+    .bubble-5 .sub-bubble-3 { transform: translate(-50%, -50%) rotate(324deg) translateY(-120px) translateX(80px) rotate(-324deg); }
+    
+    /* Ajustar outras seções para altura menor */
+    .about-section,
+    .materials-section,
+    .interdisciplinary-section,
+    .formative-journeys-section,
+    .ecosystem-section,
+    .professional-education-section {
+        padding: clamp(50px, 6vw, 100px) 3%;
+    }
+    
+    /* Ajustar indicadores do hero para altura menor - POSICIONAMENTO CORRIGIDO */
+    .hero-section .hero-indicators {
+        bottom: 20px;
+        position: absolute;
+        z-index: 100;
+    }
+    
+    /* Ajustar posicionamento das imagens decorativas */
+    .hero-section img[src*="eimagem.png"] {
+        right: -250px !important;
+        width: 400px !important;
+    }
+    
+    .hero-section img[src*="ava.png"] {
+        right: -80px !important;
+        width: 400px !important;
+    }
+    
+    .solutions-section img[src*="eimagem.png"] {
+        right: -450px;
+        width: 400px;
+    }
+    
+    .materials-section img[src*="eimagem.png"],
+    .interdisciplinary-section img[src*="eimagem.png"],
+    .ecosystem-section img[src*="eimagem.png"],
+    .professional-education-section img[src*="eimagem.png"] {
+        right: -450px;
+        width: 400px;
+    }
+    
+    /* As setinhas mantêm posição fixa em todas as resoluções */
+}
+
+/* ===== CORREÇÕES ESPECÍFICAS PARA SLIDES EM 1440x900 ===== */
+/* REMOVIDO - Mantendo funcionamento original dos slides */
+
+/* ===== AJUSTES ESPECÍFICOS PARA SLIDES EM RESOLUÇÕES MENORES ===== */
+@media screen and (min-width: 1220px) and (max-width: 1440px) {
+    /* Ajustar apenas o posicionamento dos textos dos slides - SEM ALTERAR TAMANHOS */
+    
+
+    
+    /* Slide 2 - slide2-content - ALINHADO À DIREITA - CORRIGIDO */
+    .hero-section[data-slide="1"] .slide2-content,
+    .hero-section[data-slide="1"] #slide2Content {
+        margin-left: 90px !important;
+        transform: translateX(50px) !important;
+        text-align: right !important;
+        margin-right: 50px !important;
+        padding-right: 20px !important;
+    }
+    
+    /* Forçar alinhamento à direita para todos os elementos do slide 2 */
+    .hero-section[data-slide="1"] .slide2-content *,
+    .hero-section[data-slide="1"] #slide2Content * {
+        text-align: right !important;
+    }
+    
+    /* SOBRESCREVER ESTILOS INLINE DO SLIDE 2 - REGRA MAIS ESPECÍFICA */
+    .hero-section[data-slide="1"] #slide2Content[style*="text-align: right"] {
+        text-align: right !important;
+        margin-left: 90px !important;
+        transform: translateX(50px) !important;
+        margin-right: 50px !important;
+        padding-right: 20px !important;
+    }
+    
+    /* Forçar alinhamento para elementos específicos do slide 2 */
+    .hero-section[data-slide="1"] #slide2Content h1,
+    .hero-section[data-slide="1"] #slide2Content strong,
+    .hero-section[data-slide="1"] #slide2Content span {
+        text-align: right !important;
+        display: block !important;
+    }
+    
+    /* Ajustar posicionamento dos indicadores para melhor visibilidade */
+    .hero-section .hero-indicators {
+        bottom: -150px !important;
+    }
+    
+    /* As setinhas mantêm posição fixa em todas as resoluções */
+
+    /* Ajuste específico para o texto "Reascendendo o Sentido de Ensinar e Aprender" */
+    .hero-section[data-slide="1"] #slide2Content span[style*="font-size: 0.8em"] {
+        margin-left: 90px !important;
+        transform: translateX(50px) !important;
+    }
+    
+    /* Ajuste específico para o slide 4 - Mover texto mais para a esquerda */
+    .hero-section[data-slide="3"] .hero-content div[style*="text-align: center"] {
+        left: 0px !important;
+    }
+    
+    .hero-section[data-slide="3"] .hero-content div[style*="position: absolute"] {
+        right: -1000px !important;
+    }
+    
+    /* REGRAS MAIS ESPECÍFICAS E FORTES PARA O SLIDE 4 */
+    body .hero-section[data-slide="3"] .hero-content div[style*="text-align: center"] {
+        left: 0px !important;
+        position: relative !important;
+    }
+    
+    body .hero-section[data-slide="3"] .hero-content div[style*="position: absolute"] {
+        right: -1000px !important;
+        position: absolute !important;
+    }
+    
+    /* REGRAS AINDA MAIS ESPECÍFICAS */
+    html body .hero-section[data-slide="3"] .hero-content div[style*="position: absolute"] {
+        right: -1000px !important;
+        position: absolute !important;
+    }
+    
+    /* Ajuste específico para o slide 3 - Mover "Pedagogia" para cima */
+    .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* REGRAS MAIS ESPECÍFICAS E FORTES PARA O SLIDE 3 */
+    body .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* REGRAS AINDA MAIS ESPECÍFICAS */
+    html body .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* REGRAS SUPER ESPECÍFICAS COM ATRIBUTOS */
+    .hero-section[data-slide="2"] .hero-content strong:first-child[style] {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    body .hero-section[data-slide="2"] .hero-content strong:first-child[style] {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* AJUSTE ESPECÍFICO PARA A PALAVRA "PEDAGOGIA" NO SLIDE 3 */
+    .hero-section[data-slide="2"] .hero-content strong[style*="margin-left: -50px"] {
+        margin-top: -20px !important;
+        top: -20px !important;
+    }
+    
+    /* REGRAS MAIS ESPECÍFICAS PARA "PEDAGOGIA" */
+    body .hero-section[data-slide="2"] .hero-content strong[style*="margin-left: -50px"] {
+        margin-top: -20px !important;
+        top: -20px !important;
+    }
+    
+    html body .hero-section[data-slide="2"] .hero-content strong[style*="margin-left: -50px"] {
+        margin-top: -20px !important;
+        top: -20px !important;
+    }
+    
+    /* REGRAS MAIS ESPECÍFICAS E FORTES PARA O SLIDE 3 */
+    body .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* REGRAS AINDA MAIS ESPECÍFICAS */
+    html body .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* REGRAS SUPER ESPECÍFICAS COM ATRIBUTOS */
+    .hero-section[data-slide="2"] .hero-content strong:first-child[style] {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    body .hero-section[data-slide="2"] .hero-content strong:first-child[style] {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+    
+    /* AJUSTE ESPECÍFICO PARA A PALAVRA "PEDAGOGIA" NO SLIDE 3 */
+    .hero-section[data-slide="2"] .hero-content strong[style*="margin-left: -50px"] {
+        margin-top: -20px !important;
+        top: -20px !important;
+    }
+    
+    /* REGRAS MAIS ESPECÍFICAS PARA "PEDAGOGIA" */
+    body .hero-section[data-slide="2"] .hero-content strong[style*="margin-left: -50px"] {
+        margin-top: -20px !important;
+        top: -20px !important;
+    }
+    
+    html body .hero-section[data-slide="2"] .hero-content strong[style*="margin-left: -50px"] {
+        margin-top: -20px !important;
+        top: -20px !important;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1219px) {
+    /* Ajustar tamanhos para resoluções menores */
+    .hero-section {
+        min-height: 600px !important;
+        height: auto !important;
+    }
+    
+    .hero-container {
+        padding: 40px 20px !important;
+    }
+    
+    .hero-content {
+        margin: 0 auto !important;
+        max-width: 90% !important;
+    }
+    
+    /* Ajustar bolhas de soluções */
+    .solutions-bubbles {
+        gap: 15px !important;
+        margin-top: 30px !important;
+    }
+    
+    .bubble {
+        width: 120px !important;
+        height: 120px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Ajustar imagem decorativa */
+    .hero-section img[src*="ava.png"],
+    .hero-section .ava-mini-logo {
+        position: absolute !important;
+        top: 300px !important;
+        right: -80px !important;
+        width: 400px !important;
+        height: auto !important;
+        z-index: 1 !important;
+        transition: none !important;
+        box-shadow: none !important;
+        pointer-events: none !important;
+    }
+    
+    /* Ajuste específico para o slide 4 - Mover texto mais para a esquerda */
+    .hero-section[data-slide="3"] .hero-content div[style*="text-align: center"] {
+        left: 0px !important;
+    }
+    
+    .hero-section[data-slide="3"] .hero-content div[style*="position: absolute"] {
+        right: -1000px !important;
+    }
+    
+    /* Ajuste específico para o slide 3 - Mover "Pedagogia" para cima */
+    .hero-section[data-slide="2"] .hero-content strong:first-child {
+        margin-top: -20px !important;
+        display: block !important;
+    }
+}
+
+/* ===== REGRA SIMPLES E DIRETA PARA BOLD DO SLIDE 1 ===== */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    /* Primeiro: remover bold de todo o texto do slide 1 */
+    .hero-section[data-slide="0"] h1,
+    .hero-section[data-slide="0"] .hero-content h1,
+    .hero-section[data-slide="0"] #heroTitle {
+        font-weight: normal !important;
+    }
+    
+    /* Segundo: reaplicar bold APENAS nas palavras "Transformando" e "vidas" */
+    .hero-section[data-slide="0"] h1 strong:first-child,
+    .hero-section[data-slide="0"] h1 strong:nth-child(2) {
+        font-weight: bold !important;
+    }
+    
+    /* Regra alternativa usando ID */
+    .hero-section[data-slide="0"] #heroTitle strong:first-child,
+    .hero-section[data-slide="0"] #heroTitle strong:nth-child(2) {
+        font-weight: bold !important;
+    }
+    
+    /* Regra para garantir que funcione */
+    .hero-section[data-slide="0"] .hero-content h1 strong:first-child,
+    .hero-section[data-slide="0"] .hero-content h1 strong:nth-child(2) {
+        font-weight: bold !important;
+    }
+}
+
+/* ===== REGRA FINAL PARA SLIDE 2 "IMERSÃO" ===== */
+/* Mover texto do slide 2 para baixo em resoluções 1440x1080 e menores */
+@media screen and (max-width: 1440px) and (min-width: 1025px) {
+    /* REGRA SUPER SIMPLES E DIRETA */
+    .hero-section[data-slide="1"] .slide2-content {
+        margin-top: 170px !important;
+    }
+    
+    .hero-section[data-slide="1"] #slide2Content {
+        margin-top: 170px !important;
+    }
+    
+    /* REGRA ESPECÍFICA PARA MOVER A PALAVRA "IMERSÃO" PARA BAIXO */
+    .hero-section[data-slide="1"] .slide2-content strong:first-child,
+    .hero-section[data-slide="1"] #slide2Content strong:first-child {
+        top: 15px !important;
+        left: -20px !important;
+        position: relative !important;
+    }
+    
+    /* REGRA SUPER FORTE PARA SOBRESCREVER ESTILOS INLINE DO SLIDE 2 */
+    .hero-section[data-slide="1"] .hero-content div[style*="top: -50px"] strong:first-child,
+    .hero-section[data-slide="1"] .hero-content div[style*="top: -50px"] strong:first-child[style*="left: -30px"] {
+        top: 15px !important;
+        left: -20px !important;
+        position: relative !important;
+    }
+    
+    /* REGRA AINDA MAIS ESPECÍFICA PARA O SLIDE 2 */
+    .hero-section[data-slide="1"] .hero-content div[style*="text-align: left"] strong:first-child {
+        top: 15px !important;
+        left: -20px !important;
+        position: relative !important;
+    }
+    
+    /* REGRA PARA QUALQUER STRONG NO SLIDE 2 */
+    .hero-section[data-slide="1"] .hero-content strong:first-child {
+        top: 15px !important;
+        left: -20px !important;
+        position: relative !important;
+    }
+}
+
+/* ===== REGRA ESPECÍFICA PARA DIMINUIR TAMANHO DA SUB-BOLHA 1 EM 1440x1080 E MENORES ===== */
+/* Aplicar apenas para resoluções desktop (não mobile) */
+@media screen and (max-width: 1440px) and (min-width: 1025px) {
+    /* Diminuir tamanho da sub-bolha 1 da bolha 1 (internet de alta performance) */
+    .bubble-1 .sub-bubble-1 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-1 .sub-bubble-1 { 
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-130px) rotate(0deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 2 da bolha 1 (plataforma tecnológica) */
+    .bubble-1 .sub-bubble-2 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-1 .sub-bubble-2 { 
+        transform: translate(-50%, -50%) rotate(-36deg) translateY(-130px) translateX(-75px) rotate(36deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 3 da bolha 1 (gestão unificada) */
+    .bubble-1 .sub-bubble-3 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-1 .sub-bubble-3 { 
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-130px) translateX(70px) rotate(-36deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 1 da bolha 2 (material didático do professor) */
+    .bubble-2 .sub-bubble-1 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-2 .sub-bubble-1 { 
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-140px) rotate(-72deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 2 da bolha 2 (IA própria) */
+    .bubble-2 .sub-bubble-2 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-2 .sub-bubble-2 { 
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-130px) translateX(-70px) rotate(-36deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 3 da bolha 2 (cursos de capacitação) */
+    .bubble-2 .sub-bubble-3 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-2 .sub-bubble-3 { 
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-120px) translateX(60px) rotate(-108deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 1 da bolha 3 (material didático interativo) */
+    .bubble-3 .sub-bubble-1 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-3 .sub-bubble-1 { 
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-160px) translateX(-20px) rotate(-144deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 2 da bolha 3 (IA tutor particular) */
+    .bubble-3 .sub-bubble-2 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-3 .sub-bubble-2 { 
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-140px) translateX(-70px) rotate(-108deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 3 da bolha 3 (recomposição de aprendizagem) */
+    .bubble-3 .sub-bubble-3 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-3 .sub-bubble-3 { 
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-130px) translateX(40px) rotate(-180deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 1 da bolha 4 (ambiente virtual de aprendizagem) */
+    .bubble-4 .sub-bubble-1 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-4 .sub-bubble-1 { 
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-155px) translateX(25px) rotate(-216deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 2 da bolha 4 (sistema de gestão) */
+    .bubble-4 .sub-bubble-2 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-4 .sub-bubble-2 { 
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-120px) translateX(-40px) rotate(-180deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 3 da bolha 4 (controle de eficiência) */
+    .bubble-4 .sub-bubble-3 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-4 .sub-bubble-3 { 
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-135px) translateX(60px) rotate(-252deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 1 da bolha 5 (estruturas de baixa complexidade) */
+    .bubble-5 .sub-bubble-1 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-5 .sub-bubble-1 { 
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-155px) translateX(25px) rotate(-288deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 2 da bolha 5 (laboratórios de média complexidade) */
+    .bubble-5 .sub-bubble-2 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-5 .sub-bubble-2 { 
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-140px) translateX(-30px) rotate(-252deg) !important; 
+    }
+    
+    /* Diminuir tamanho da sub-bolha 3 da bolha 5 (laboratórios de alta complexidade) */
+    .bubble-5 .sub-bubble-3 {
+        width: 160px !important;
+        height: 160px !important;
+        font-size: clamp(0.6rem, 1.4vw, 0.75rem) !important;
+        line-height: 1.2 !important;
+        padding: 12px !important;
+    }
+    
+    /* Ajustar posicionamento para o novo tamanho */
+    .bubble-5 .sub-bubble-3 { 
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-135px) translateX(80px) rotate(-324deg) !important; 
+    }
+}
+
+/* REGRA SUPER ESPECÍFICA PARA MOVER APENAS A PALAVRA "PEDAGOGIA" PARA BAIXO NO SLIDE 3 */
+/* Esta regra afeta apenas a palavra "Pedagogia" sem mexer no resto */
+html body .hero-section[data-slide="2"] .hero-content strong:first-child[style*="margin-left: -50px"] {
+    margin-top: 200px !important;
+    top: auto !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* Regra específica para garantir que apenas "Pedagogia" seja afetada */
+html body .hero-section[data-slide="2"] .hero-content div strong:first-child[style*="margin-left: -50px"] {
+    margin-top: 200px !important;
+    top: auto !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* Regra máxima de especificidade para "Pedagogia" apenas */
+html body .hero-section[data-slide="2"] .hero-content div strong:first-child[style*="margin-left: -50px"][style*="color: #1e3a8a"] {
+    margin-top: 200px !important;
+    top: auto !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* DESKTOP: Mover palavra "Pedagogia" para cima no slide 3 */
+.hero-section[data-slide="2"] .hero-content strong:first-child {
+    margin-top: -30px !important;
+    display: block !important;
+}
+
+/* Posição específica para a logo ava.png no slide 3 - movida um pouco para baixo */
+.hero-section[data-slide="2"] img[src*="ava.png"],
+.hero-section[data-slide="2"] .ava-mini-logo {
+    top: 420px !important; /* Posição original restaurada */
+}
+
+/* DESKTOP MÉDIO: Mover palavra "Inovação" mais para a direita no slide 2 */
+.hero-section[data-slide="1"] .hero-content span[style*="color: #1e3a8a"] {
+    margin-left: 30px !important;
+    transform: translateX(20px) !important;
+}
+
+/* Posição específica para a logo ava.png no slide 2 - movida um pouco para baixo */
+.hero-section[data-slide="1"] img[src*="ava.png"],
+.hero-section[data-slide="1"] .ava-mini-logo {
+    top: 420px !important; /* Posição original restaurada */
+}
+
+/* Posição específica para a logo ava.png no slide 3 - movida mais para baixo */
+.hero-section[data-slide="2"] img[src*="ava.png"],
+.hero-section[data-slide="2"] .ava-mini-logo {
+    top: 520px !important; /* Movida 100px para baixo (de 420px para 520px) */
+}
+
+/* Posição específica para a logo ava.png no slide 2 - movida um pouco para baixo */
+.hero-section[data-slide="1"] img[src*="ava.png"],
+.hero-section[data-slide="1"] .ava-mini-logo {
+    top: 420px !important; /* Posição original restaurada */
+}
+
+
+
+
+

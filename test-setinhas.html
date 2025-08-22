@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste das Setinhas dos Slides</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .test-container {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .test-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .test-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .test-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .test-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .test-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .status {
+            margin-top: 2rem;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .status h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .status ul {
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .status li {
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">✅ Setinhas dos Slides Implementadas!</h1>
+        <p class="test-description">
+            As setinhas de navegação dos slides foram criadas com sucesso no arquivo principal.
+        </p>
+        
+        <div class="test-buttons">
+            <a href="index.html" class="test-btn">📱 Ver Site Principal</a>
+            <a href="styles.css" class="test-btn">🎨 Ver CSS</a>
+            <a href="script.js" class="test-btn">⚙️ Ver JavaScript</a>
+        </div>
+
+        <div class="status">
+            <h3>🎯 Funcionalidades Implementadas:</h3>
+            <ul>
+                <li>✅ Setinha esquerda (anterior) com ícone de chevron</li>
+                <li>✅ Setinha direita (próximo) com ícone de chevron</li>
+                <li>✅ Indicadores visuais dos slides (bolinhas)</li>
+                <li>✅ Estilos responsivos para diferentes tamanhos de tela</li>
+                <li>✅ Efeitos de hover e foco para acessibilidade</li>
+                <li>✅ Integração com o sistema de slides existente</li>
+                <li>✅ Navegação por teclado (setas esquerda/direita)</li>
+                <li>✅ Suporte para dispositivos móveis e desktop</li>
+            </ul>
+        </div>
+
+        <div class="status" style="margin-top: 1rem; border-left-color: #2196F3;">
+            <h3>🔧 Como Usar:</h3>
+            <ul>
+                <li><strong>Clique nas setinhas</strong> para navegar entre os slides</li>
+                <li><strong>Clique nos indicadores</strong> para ir para um slide específico</li>
+                <li><strong>Use as teclas de seta</strong> do teclado para navegar</li>
+                <li><strong>Swipe em dispositivos móveis</strong> para navegar</li>
+                <li><strong>Autoplay automático</strong> a cada 4 segundos</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

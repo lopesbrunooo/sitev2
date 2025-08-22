@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu - Sistema de Ensino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- EmailJS para envio de emails -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="assets/img/logoedu.jpeg" alt="Logo Edu Sistema de Ensino" onerror="this.onerror=null;this.src='https://placehold.co/200x60';">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#quem-somos">Quem somos</a></li>
+                    <li><a href="#solucoes">Soluções educacionais</a></li>
+                    <li><a href="#parcerias">Parcerias</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sistemapontoedu"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/ponto-edu"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero-section">
+            <div class="hero-container" style="position: relative; overflow: visible;">
+
+                <!-- Setinhas de navegação dos slides -->
+                <button class="hero-nav-arrow hero-prev" id="heroPrev" aria-label="Slide anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="hero-nav-arrow hero-next" id="heroNext" aria-label="Próximo slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Indicadores dos slides -->
+                <div class="hero-indicators" id="heroIndicators"></div>
+                
+                <div class="hero-content">
+                    <h1 id="heroTitle">
+                        <strong>Transformando</strong><br>
+                        <strong>vidas</strong> por meio de<br>
+                        uma educação pública<br>
+                        integral, inclusiva<br>
+                        e de excelência
+                    </h1>
+                </div>
+                
+                <!-- Conteúdo específico do slide 2 (alinhado à direita) -->
+                <div class="hero-content slide2-content" id="slide2Content" style="display: none; text-align: right; margin-left: auto; margin-right: 50px; padding-right: 20px;">
+                    <h1>
+                        <strong>Imersão</strong><br>
+                        <span style="color: #1e3a8a; border-bottom: 2px solid white;">Inovação</span><br>
+                        <strong>Interação</strong><br><br>
+                        <span style="font-size: 0.8em; font-weight: normal;">Reascendendo o Sentido de<br>Ensinar e Aprender</span>
+                    </h1>
+                </div>
+                                    <img src="assets/img/slide2.png" alt="Menina com tablet" class="slide2-image" style="position: absolute; bottom: -100px; left: 50px; width: 650px; height: auto; z-index: 10; display: none;">
+                <img src="assets/img/eimagem.png" alt="Elemento decorativo E" style="position: absolute; top: -280px; right: -400px; width: 520px; max-width: 80vw; height: auto; z-index: 0; pointer-events: none;">
+                <img src="assets/img/ava.png" alt="AVA Logo" class="ava-mini-logo" style="position: absolute; top: 420px; right: -120px; width: 520px; height: auto; z-index: 1; box-shadow: none; transition: none; pointer-events: none;">
+            </div>
+        </section>
+
+    <section id="quem-somos" class="about-section">
+            <div class="about-container">
+                <h2>Quem Somos</h2>
+                <p class="history-subtitle">Nossa História</p>
+                <p class="mission-statement"><span class="mission-statement-highlight">Nascemos com a missão</span> de fortalecer a educação pública brasileira, com soluções integradas, acessíveis e tecnológicas.</p>
+                <h3>Missão, Visão e Valores</h3>
+                <div class="values-grid">
+                    <div class="value-card mission">
+                        <h4>Missão</h4>
+                        <p>Fornecer soluções educacionais de qualidade com experiência imersiva para a educação pública brasileira, gerando vínculo emocional que transforma a vida do estudante e do professor.</p>
+                    </div>
+                    <div class="value-card vision">
+                        <h4>Visão</h4>
+                        <p>Ser referência em educação integral integrada na educação pública mundial.</p>
+                    </div>
+                    <div class="value-card values">
+                        <h4>Valores</h4>
+                        <p>Inovação, colaboração, diversidade, sustentabilidade e educação integral.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucoes" class="solutions-section">
+            <div class="solutions-container" style="position: relative; overflow: visible;">
+                <div class="solutions-diagram">
+                    <div class="central-logo-bubble">
+                        <img src="assets/img/logoedu.jpeg" alt="Logo Edu">
+                    </div>
+                    <div class="education-bubble bubble-1">
+                        Conectividade<br> e Infraestrutura
+                        <div class="education-bubble bubble sub-bubble sub-bubble-1">Levamos internet de<br> alta performance e instalamos APs<br> em cada sala de aula.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-2">Oferecemos uma<br> plataforma tecnológica<br> completa e integrada.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-3">Garantimos acesso<br> ao conteúdo e à gestão de<br> forma simples e unificada.</div>
+                    </div>
+                    <div class="education-bubble bubble-2">
+                        Apoio Integral<br> ao Professor
+                        <div class="education-bubble bubble sub-bubble sub-bubble-1">Material didático do<br> professor com comentários<br> e propostas de exercícios.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-2">IA própria que<br> auxilia na elaboração de<br> planos de aula e exercícios</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-3">Cursos de capacitação em<br> nível de pós-graduação lato<br> sensu para educadores.</div>
+                    </div>
+                    <div class="education-bubble bubble-3">
+                         Conteúdo<br> e Aprendizagem
+                        <div class="education-bubble bubble sub-bubble sub-bubble-1">Disponibilizamos<br> material didático 100%<br> interativo para o aluno.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-2">IA que atua como<br> tutor particular para reforçar o<br> desempenho do aluno.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-3">Foco na recomposição<br> de aprendizagem,<br> do 6º ano ao Ensino Médio.</div>
+                    </div>
+                    <div class="education-bubble bubble-4">
+                        Plataforma<br> Digital Integrada
+                        <div class="education-bubble bubble sub-bubble sub-bubble-1">Ambiente Virtual de<br> Aprendizagem para a<br> realização de aulas interativas.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-2">Sistema de Gestão que<br> mensura a evolução do<br> aluno com notas e faltas.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-3">Controle de eficiência da<br> aula e acompanhamento do<br> desempenho individual.</div>
+                    </div>
+                    <div class="education-bubble bubble-5">
+                        Laboratórios<br> para o Futuro
+                        <div class="education-bubble bubble sub-bubble sub-bubble-1">Estruturas de baixa<br> complexidade com carrinhos de notebooks para as salas.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-2">Fornecimento<br> completo de laboratórios<br> de média complexidade.</div>
+                        <div class="education-bubble bubble sub-bubble sub-bubble-3 mobile-small-text">Laboratórios de alta complexidade<br> (eletrotécnica, enfermagem)<br> com todos os equipamentos.</div>
+                    </div>
+                </div>
+                <div class="solutions-image-wrapper">
+                    <img src="assets/img/imagemestudante.jpg" alt="Estudante sorrindo">
+                </div>
+                <img src="assets/img/eimagem.png" alt="Elemento decorativo E" style="position: absolute; top: -80px; right: -600px; width: 520px; max-width: 80vw; height: auto; z-index: 0; pointer-events: none;">
+            </div>
+        </section>
+
+        <section class="educational-solutions-section">
+            <div class="educational-solutions-container">
+                <h2 class="section-title-blue">Soluções Educacionais</h2>
+                <h3 class="section-subtitle-gray">Educação Básica - Educação com Propósito</h3>
+                <p class="section-text">Cada etapa da vida escolar traz descobertas únicas. Nossa coleção foi pensada para estar presente em todas elas, da Educação Infantil ao Ensino Médio.</p>
+                <p class="section-text">Com uma abordagem inovadora, interligamos áreas do conhecimento e emoções, saberes e vivências. Porque educar, para nós, é mais do que ensinar conteúdos: é formar pessoas inteiras.</p>
+                <div class="features-grid">
+                    <div class="feature-circle">Materiais que acolhem, inspiram e desafiam</div>
+                    <div class="feature-circle">Projetos interdisciplinares que despertam o pensar e o sentir</div>
+                    <div class="feature-circle">Itinerários Formativos com propósito.</div>
+                    <div class="feature-circle">Ecossistema pedagógico vivo e em movimento.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="materiais" class="materials-section">
+            <div class="materials-container" style="position: relative; overflow: visible;">
+                <div class="materials-content">
+                    <h2>Materiais que acolhem, inspiram e desafiam.</h2>
+                    <p>Produzidos por especialistas e conectados com o mundo atual.</p>
+                    <p>Promovem a interdisciplinaridade e o aprendizado contextualizado.</p>
+                    <p>Desenvolvem competências cognitivas, linguísticas e socioemocionais.</p>
+                </div>
+                <div class="materials-image-container" style="position: relative;">
+                    <img src="assets/img/criancas.jpg" alt="Capa do livro da coleção Zigue-Zague" onerror="this.onerror=null;this.src='https://placehold.co/500x350';">
+                    <img src="assets/img/caradas.png" alt="Sobreposição de rostos" class="caras-sobreposicao" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                </div>
+                <img src="assets/img/eimagem.png" alt="Elemento decorativo E" style="position: absolute; top: -80px; right: -600px; width: 520px; max-width: 80vw; height: auto; z-index: 0; pointer-events: none;">
+            </div>
+        </section>
+
+        <section id="interdisciplinares" class="interdisciplinary-section">
+            <div class="interdisciplinary-container" style="position: relative; overflow: visible;">
+                <div class="interdisciplinary-content">
+                    <h2>Projetos interdisciplinares que despertam o pensar e o sentir.</h2>
+                    <p>Estimulam a autonomia, o pensamento crítico e a colaboração.</p>
+                    <p>Trabalham temas atuais de forma integrada e significativa.</p>
+                    <p>Conectam áreas como arte, ciências, escrita, cultura e meio ambiente.</p>
+                </div>
+                <img src="assets/img/eimagem.png" alt="Elemento decorativo E" style="position: absolute; top: -80px; right: -300px; width: 520px; max-width: 80vw; height: auto; z-index: 1; pointer-events: none;">
+            </div>
+        </section>
+
+        <section id="itinerarios" class="formative-journeys-section">
+            <div class="formative-journeys-container">
+                <div class="formative-journeys-content">
+                    <h2>Itinerários Formativos com propósito.</h2>
+                    <p>No Ensino Médio, oferecemos percursos formativos integrados à grade curricular, que ampliam as possibilidades de escolha e aprofundamento.</p>
+                    <p>As trilhas de aprendizagem são construídas com base nos interesses dos estudantes e conectadas aos seus projetos de vida.</p>
+                    <p>Proposta que prepara o jovem para fazer escolhas conscientes, explorar vocações e construir futuros com propósito.</p>
+                </div>
+                <div class="formative-journeys-image-container">
+                    <img src="assets/img/capabio.jpg" alt="Capa do livro de Biologia" onerror="this.onerror=null;this.src='https://placehold.co/400x550';">
+                </div>
+            </div>
+        </section>
+
+        <section id="ecossistema" class="ecosystem-section">
+            <div class="ecosystem-container" style="position: relative; overflow: visible;">
+                <div class="ecosystem-content">
+                    <h2>Ecossistema pedagógico vivo e em movimento.</h2>
+                    <p>Valorizamos competências essenciais para a formação integral, como pensamento crítico, criatividade, colaboração e comunicação.</p>
+                    <p>Preparamos os estudantes para atuar com consciência e autonomia nos desafios do presente e nas possibilidades do futuro.</p>
+                    <p>Unimos coerência, intencionalidade e inovação para articular toda a Educação Básica em uma proposta conectada.</p>
+                </div>
+                <img src="assets/img/eimagem.png" alt="Elemento decorativo E" style="position: absolute; top: -80px; right: -300px; width: 520px; max-width: 80vw; height: auto; z-index: 1; pointer-events: none;">
+            </div>
+        </section>
+
+        <section class="professional-education-section">
+            <div class="professional-education-container" style="position: relative; overflow: visible;">
+                <img src="assets/img/eimagem.png" alt="Elemento decorativo E" style="position: absolute; top: -80px; right: -600px; width: 520px; max-width: 80vw; height: auto; z-index: 0; pointer-events: none;">
+                <div class="professional-education-content">
+                    <h2>Educação Profissional e Tecnológica (EPT)</h2>
+                    <p class="subtitle">Mais de 20 cursos técnicos e profissionalizantes</p>
+                    <strong>3 grandes eixos:</strong>
+                    <ul>
+                        <li>Turismo, Hospitalidade e Lazer</li>
+                        <li>Informação e Comunicação</li>
+                        <li>Gestão e Negócios</li>
+                    </ul>
+                    <ul>
+                        <li>Integração com a Formação Geral Básica</li>
+                        <li>Projetos de vida e escolha profissional desde o Ensino Médio</li>
+                    </ul>
+                </div>
+                <div class="professional-education-image-container">
+                    <div class="image-wrapper">
+                        <img src="assets/img/m1.png" alt="Mulher sorrindo segurando um tablet" style="position: relative; z-index: 1;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="books-carousel-section">
+            <div class="books-carousel-container">
+                <button class="books-carousel-arrow prev-book"><i class="fas fa-chevron-left"></i></button>
+                <div class="book-item"><img src="assets/img/livro1.jpg" alt="Capa do livro 1"></div>
+                <div class="book-item"><img src="assets/img/livro2.jpg" alt="Capa do livro 2"></div>
+                <div class="book-item"><img src="assets/img/livro3.jpg" alt="Capa do livro 3"></div>
+                <button class="books-carousel-arrow next-book"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="ava" class="ava-section">
+            <div class="ava-container">
+                <h2 class="section-title-blue">AVA - Ambiente virtual de aprendizado</h2>
+                <div class="ava-features-grid">
+                    <div class="ava-feature-flip">
+                        <div class="ava-feature-item online-24h">
+                            <div class="ava-front">
+                                <i class="fas fa-globe ava-feature-icon"></i>
+                                <p class="ava-feature-text">Online 24 horas</p>
+                            </div>
+                            <div class="ava-back">
+                                <p class="ava-back-text">Seu aprendizado, no seu tempo e em qualquer lugar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-feature-flip">
+                        <div class="ava-feature-item atividades-avaliativas">
+                            <div class="ava-front">
+                                <i class="fas fa-thumbs-up ava-feature-icon"></i>
+                                <p class="ava-feature-text">Atividades avaliativas</p>
+                            </div>
+                            <div class="ava-back">
+                                <p class="ava-back-text">Acompanhe sua evolução e supere seus limites.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-feature-flip">
+                        <div class="ava-feature-item integracao-fisico-digital">
+                            <div class="ava-front">
+                                <i class="fas fa-desktop ava-feature-icon"></i>
+                                <p class="ava-feature-text">Integração entre o físico e o digital</p>
+                            </div>
+                            <div class="ava-back">
+                                <p class="ava-back-text">O melhor do mundo físico e digital, juntos no seu aprendizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-feature-flip">
+                        <div class="ava-feature-item comunicacao-aluno-professor">
+                            <div class="ava-front">
+                                <i class="fas fa-comments ava-feature-icon"></i>
+                                <p class="ava-feature-text">Comunicação direta entre aluno e professor</p>
+                            </div>
+                            <div class="ava-back">
+                                <p class="ava-back-text">Seu professor a uma mensagem de distância para te ajudar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-feature-flip">
+                        <div class="ava-feature-item acompanhamento-personalizado">
+                            <div class="ava-front">
+                                <i class="fas fa-user-cog ava-feature-icon"></i>
+                                <p class="ava-feature-text">Acompanhamento individualizado e personalizado</p>
+                            </div>
+                            <div class="ava-back">
+                                <p class="ava-back-text">Entenda cada desafio e transforme erros em aprendizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ava-feature-flip">
+                        <div class="ava-feature-item ia-apoio">
+                            <div class="ava-front">
+                                <i class="fas fa-brain ava-feature-icon"></i>
+                                <p class="ava-feature-text">Inteligência Artificial de apoio ao aluno</p>
+                            </div>
+                            <div class="ava-back">
+                                <p class="ava-back-text">My Coach: um guia particular que entende seu jeito de aprender.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="parcerias" class="collaboration-section">
+            <div class="collaboration-container">
+                <h2>Rede de colaboração</h2>
+                <div class="collaboration-grid">
+                    <div class="collaboration-item">
+                        <div class="image-wrapper">
+                            <img src="assets/img/f1.jpg" alt="Palestrante em evento">
+                        </div>
+                        <p>Parcerias com instituições públicas, universidades e terceiro setor</p>
+                    </div>
+                    <div class="collaboration-item">
+                        <div class="image-wrapper">
+                            <img src="assets/img/f2.jpg" alt="Pessoas em um encontro">
+                        </div>
+                        <p>Agenda de encontros, seminários e eventos</p>
+                    </div>
+                    <div class="collaboration-item">
+                        <div class="image-wrapper">
+                            <img src="assets/img/f3.jpg" alt="Grupo de pessoas sorrindo">
+                        </div>
+                        <p>Destaques de ações colaborativas e seus impactos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="pre-footer-image">
+        <img src="assets/img/caradas.png" alt="Marca d'água E" class="e-watermark">
+        <img src="assets/img/estudantes.jpg" alt="Crianças sorrindo em um corredor de escola" class="background">
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column logo-column">
+                <img src="assets/img/logobranca.png" alt="Logo Edu Branco" class="footer-logo">
+                <div class="footer-social-icons">
+                    <a href="https://www.instagram.com/sistemapontoedu"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/ponto-edu"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>
+                    Avenida do Contorno 6500, 4º andar - Belo Horizonte/MG
+                </p>
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.346987463!2d-43.952955785081!3d-19.919059986597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699c2e3b4f3b7%3A0x2f3b4a8b7f2e1c!2sAv.%20do%20Contorno%2C%206500%2C%204%C2%BA%20andar%2C%20Belo%20Horizonte%2C%20MG%2C%2030110-042%2C%20Brazil!5e0!3m2!1spt-BR!2sbr!4v1698259200000"
+                        width="100%"
+                        height="200"
+                        style="border:0; border-radius: 10px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Navegue pelo Site</h4>
+                <ul>
+                    <li><a href="#quem-somos">Quem somos</a></li>
+                    <li><a href="#solucoes">O que fazemos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Soluções</h4>
+                <ul>
+                    <li><a href="#materiais">Materiais didáticos</a></li>
+                    <li><a href="#ava">AVA</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="#" id="openContactModal">Fale conosco</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Contato -->
+    <div id="contactModal" class="contact-modal">
+        <div class="contact-modal-content">
+            <div class="contact-modal-header">
+                <h3>Fale Conosco</h3>
+                <span class="close-modal" id="closeContactModal">&times;</span>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="assunto">Assunto *</label>
+                    <input type="text" id="assunto" name="assunto" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem aqui..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelContact" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal das Sub-bolhas para Mobile -->
+    <div id="bubbleModal" class="bubble-modal">
+        <div class="bubble-modal-content">
+            <div class="bubble-modal-header">
+                <h3 id="bubbleModalTitle">Soluções Educacionais</h3>
+                <span class="close-modal" id="closeBubbleModal">&times;</span>
+            </div>
+            <div class="bubble-modal-body">
+                <div class="sub-bubble-grid">
+                    <div class="sub-bubble-item" id="subBubble1">
+                        <div class="sub-bubble-content"></div>
+                    </div>
+                    <div class="sub-bubble-item" id="subBubble2">
+                        <div class="sub-bubble-content"></div>
+                    </div>
+                    <div class="sub-bubble-item" id="subBubble3">
+                        <div class="sub-bubble-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Enviando mensagem...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
